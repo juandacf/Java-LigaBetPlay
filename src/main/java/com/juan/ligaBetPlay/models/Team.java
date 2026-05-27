@@ -2,12 +2,12 @@ package com.juan.ligaBetPlay.models;
 import java.util.List;
 
 
-public class Equipo {
+public class Team {
     private int Id;
     private String Name;
-    private List<Jugador> Jugadores;
+    private List<Player> Jugadores;
 
-    public Equipo(int id, String name ){
+    public Team(int id, String name ){
         this.Id = id;
         this.Name= name;
     }
@@ -19,6 +19,10 @@ public class Equipo {
     public String getTeamName(){
         return this.Name;
     }
+
+    public List<Player> getAllPlayers(){
+        return this.Jugadores;
+    }
     
-    
+
 }
