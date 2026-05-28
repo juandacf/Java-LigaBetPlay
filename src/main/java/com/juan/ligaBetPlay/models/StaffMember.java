@@ -10,4 +10,16 @@ public class StaffMember {
         this.FullName = fullName;
         this.StaffRole = staffRole;
     }
+
+    public int GetId() {
+        return this.Id;
+    }
+
+    public String GetFullName() {
+        return this.FullName;
+    }
+
+    public Role GetRole() {
+        return this.StaffRole;
+    }
 }

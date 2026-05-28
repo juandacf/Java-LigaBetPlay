@@ -6,7 +6,7 @@ public class Staff {
     private List<StaffMember> StaffMembers; 
     
     public Staff(){
-
+        this.StaffMembers = new ArrayList<>();
     }
 
     public List<StaffMember> getAllStaffMembers(){

@@ -13,7 +13,8 @@ public class Team {
     private int Wins;
     private int Loses;
     private int Evens;
-
+    private int LeaguePoints;
+    
     public Team(int id, String name ){
         this.Id = id;
         this.Name= name;
