@@ -1,15 +1,29 @@
 package com.juan.ligaBetPlay.models;
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class Team {
     private int Id;
     private String Name;
-    private List<Player> Jugadores;
+    private List<Player> Players;
+    private int TotalPositiveGoals;
+    private int TotalNegativeGoals;
+    private Staff Staff;
+    private int Wins;
+    private int Loses;
+    private int Evens;
 
     public Team(int id, String name ){
         this.Id = id;
         this.Name= name;
+        this.Players = new ArrayList<>();
+        this.TotalPositiveGoals = 0;
+        this.TotalNegativeGoals = 0;
+        this.Staff = new Staff();
+        this.Wins = 0;
+        this.Loses =0; 
+        this.Evens=0;
     }
 
     public int getTeamId(){
@@ -21,8 +35,14 @@ public class Team {
     }
 
     public List<Player> getAllPlayers(){
-        return this.Jugadores;
+        return this.Players;
     }
     
+    public int returnPositiveGoals(){
+        return this.TotalPositiveGoals;
+    }
 
+    public int returnNegativeGoals() {
+        return this.TotalNegativeGoals;
+    }
 }

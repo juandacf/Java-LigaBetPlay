@@ -5,9 +5,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        Team Millonarios =  new Team(1, "Millonarios");
-        
-        System.out.println(Millonarios.getTeamName());
+        System.out.println("Holaa");
 
     }
 }
