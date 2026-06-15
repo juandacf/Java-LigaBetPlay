@@ -16,7 +16,7 @@ public class League {
         return this.Name;
     }
 
-    public List<Team> GetLeague() {
+    public List<Team> GetLeagueTeams() {
         return this.Teams;
     }
 }

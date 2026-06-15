@@ -9,7 +9,8 @@ public class Team {
     private List<Player> Players;
     private int TotalPositiveGoals;
     private int TotalNegativeGoals;
-    private Staff Staff;
+    private boolean IsActive;
+    private List<StaffMember> Staff;
     private int Wins;
     private int Loses;
     private int Evens;
@@ -21,10 +22,11 @@ public class Team {
         this.Players = new ArrayList<>();
         this.TotalPositiveGoals = 0;
         this.TotalNegativeGoals = 0;
-        this.Staff = new Staff();
+        this.Staff = new ArrayList<>();
         this.Wins = 0;
         this.Loses =0; 
         this.Evens=0;
+        this.IsActive = true;
     }
 
     public int getTeamId(){
@@ -45,5 +47,9 @@ public class Team {
 
     public int returnNegativeGoals() {
         return this.TotalNegativeGoals;
+    }
+
+    public boolean getTeamStatus() {
+        return this.IsActive;
     }
 }
