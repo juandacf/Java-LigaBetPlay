@@ -51,6 +51,16 @@ public class TeamService {
         return DeactivatedTeam;
     }
 
+    public Team ActivateTeam(int teamId){
+        Team ActivatedTeam = null;
+        for (Team team : this.league.GetLeagueTeams()) {
+            if (teamId == team.getTeamId()) {
+                team.setTeamStatus(true);
+            }
+        }  
+        return ActivatedTeam;
+    }
+
     public Team GetTeamByID(int teamId) {
         Team ChosenTeam = null;
         for (Team team : this.league.GetLeagueTeams()) {
@@ -58,7 +68,6 @@ public class TeamService {
                 ChosenTeam = team;
             }
         }
-
         return ChosenTeam;
     }
 

@@ -53,7 +53,33 @@ public class Team {
         return this.IsActive;
     }
 
+    public List<StaffMember> getTeamStaff() {
+        return this.Staff;
+    }
+
+    public int getTeamWins() {
+        return this.Wins;
+    }
+
+    public int getTeamLoses() {
+        return this.Loses;
+    }
+
+    public int getTeamEvens(){
+        return this.Evens;
+    }
+
+    public void setTeamName(String name){
+        this.Name = name;
+    }
+
+    public void setPositiveGoals(int goals){
+        this.TotalPositiveGoals = goals;
+    }
+
     public void setTeamStatus(boolean isActive) {
         this.IsActive = isActive;
     }
+
+    
 }
