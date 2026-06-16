@@ -1,7 +1,7 @@
 package com.juan.ligaBetPlay.models;
+
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class Team {
     private int Id;
@@ -15,41 +15,45 @@ public class Team {
     private int Loses;
     private int Evens;
     private int LeaguePoints;
-    
-    public Team(int id, String name ){
+
+    public Team(int id, String name) {
         this.Id = id;
-        this.Name= name;
+        this.Name = name;
         this.Players = new ArrayList<>();
         this.TotalPositiveGoals = 0;
         this.TotalNegativeGoals = 0;
         this.Staff = new ArrayList<>();
         this.Wins = 0;
-        this.Loses =0; 
-        this.Evens=0;
+        this.Loses = 0;
+        this.Evens = 0;
         this.IsActive = true;
     }
 
-    public int getTeamId(){
+    public int getTeamId() {
         return this.Id;
     }
 
-    public String getTeamName(){
+    public String getTeamName() {
         return this.Name;
     }
 
-    public List<Player> getAllPlayers(){
+    public List<Player> getAllPlayers() {
         return this.Players;
     }
-    
-    public int returnPositiveGoals(){
+
+    public int getPositiveGoals() {
         return this.TotalPositiveGoals;
     }
 
-    public int returnNegativeGoals() {
+    public int getNegativeGoals() {
         return this.TotalNegativeGoals;
     }
 
     public boolean getTeamStatus() {
         return this.IsActive;
+    }
+
+    public void setTeamStatus(boolean isActive) {
+        this.IsActive = isActive;
     }
 }

@@ -12,6 +12,13 @@ public class App
         Team Medellín = new Team(2, "Medellín");
         TeamService teamservice = new TeamService(BetPlay);
         teamservice.CreateTeam(Millonarios);
-        teamservice.GetAllTeams();
+        teamservice.CreateTeam(Medellín);
+        Team chosenTeam = teamservice.GetTeamByID(1);
+        System.out.println(chosenTeam.getTeamName());
+        System.out.println(chosenTeam.getTeamStatus());
+        teamservice.DeactivateTeam(1);
+        System.out.println(chosenTeam.getTeamName());
+        System.out.println(chosenTeam.getTeamStatus());
+
     }
 }
