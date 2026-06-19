@@ -19,6 +19,7 @@ public class App
         teamservice.DeactivateTeam(1);
         System.out.println(chosenTeam.getTeamName());
         System.out.println(chosenTeam.getTeamStatus());
+        //prueba
 
     }
 }
