@@ -48,6 +48,8 @@ public class LeagueUI {
             5. Volver al menú anterior
             --------------------------
             """);
+
+        char chosenOption = UIUTils.CollectUserNumericKey();
     }
     public void mainPlayerMenu() {
         UIUTils.CleanTerminal();
@@ -59,6 +61,8 @@ public class LeagueUI {
             3. Editar a un jugador de un equipo
             4. Eliminar a un jugador de un equipo
             """);
+
+            char chosenOption = UIUTils.CollectUserNumericKey();
     }
 
     public void mainStaffMenu(){
@@ -72,5 +76,7 @@ public class LeagueUI {
             4. Eliminar un miembro de staff de un equipo
 
         """);
+
+        char chosenOption = UIUTils.CollectUserNumericKey();
     }
 }

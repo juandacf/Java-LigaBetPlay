@@ -27,4 +27,19 @@ public class Utils {
         return option;
 
     }
+
+    public String CollectUserString(){
+
+        Scanner scanner = new Scanner(System.in);
+        String userInput = null;
+        boolean IsValid = false;
+
+        while(!IsValid){
+            String input = scanner.nextLine();
+            
+
+        }
+        return userInput;
+
+    }
 }
