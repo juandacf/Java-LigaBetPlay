@@ -13,6 +13,5 @@ public class App
         League BetPlayleague = new League("BetPlay League");
         LeagueUI leagueUI = new LeagueUI();
         leagueUI.mainLeagueMenu();
-
     }
 }

@@ -14,7 +14,26 @@ public class LeagueUI {
             4. Añadir fecha
             5. Salir de la liga 
             -----------------------------------------------------------------------
-            """);
+            """); 
+
+            char chosenOption = UIUTils.CollectUserNumericKey();
+            switch(chosenOption){
+                case '1':
+                mainTeamMenu();
+                break;
+                case '2':
+                mainPlayerMenu();
+                break;
+                case '3':
+                mainStaffMenu();
+                break;
+                case '4':
+                System.out.println("Por desarrollarse");
+                break;
+                case'5':
+                System.out.println("Gracias por participar");
+                break;
+            } 
     }
 
     public void mainTeamMenu() {
