@@ -8,7 +8,7 @@ import com.juan.ligaBetPlay.models.Team;
 public class TeamService {
 
     private League league;
-
+    
     public TeamService(League league) {
         this.league = league;
     }

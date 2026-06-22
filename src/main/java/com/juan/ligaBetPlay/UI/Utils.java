@@ -35,9 +35,12 @@ public class Utils {
         boolean IsValid = false;
 
         while(!IsValid){
-            String input = scanner.nextLine();
-            
-
+            userInput = scanner.nextLine();
+            if(userInput.length()==0){
+                System.out.println("El campo no puede estar vacío.");
+            } else {
+                IsValid = true;
+            }
         }
         return userInput;
 
