@@ -1,5 +1,6 @@
 package com.juan.ligaBetPlay.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.juan.ligaBetPlay.models.League;
@@ -15,12 +16,12 @@ public class TeamService {
         return this.league;
     }
 
-    public List<Team> GetAllTeams() {
-        return this.league.GetLeagueTeams();
+    public List<Team> GetAllTeams(League league) {
+        return league.GetLeagueTeams();
     }
 
     public League CreateTeam(Team team, League league) {
-        league.GetLeagueTeams().add(team);
+        GetAllTeams(league).add(team);
         return league;
     }
 
@@ -28,16 +29,20 @@ public class TeamService {
         this.league.GetLeagueTeams().set(teamId, team);
     }
 
-    public List<Team> getAllActiveTeams() { // This is missing
-        List<Team> ActiveTeams = null;
+    public void getAllActiveTeams(League league) { // This is missing
+        List<Team> ActiveTeams = new ArrayList<>();
 
-        for (Team team : this.league.GetLeagueTeams()) {
+        
+        for (Team team :league.GetLeagueTeams()) {
             if (team.getTeamStatus()) {
                 ActiveTeams.add(team);
             }
         }
-
-        return ActiveTeams;
+        
+        for(Team team: ActiveTeams){
+            String mensaje = String.format("%d. %s", team.getTeamId(), team.getTeamName() );
+            System.out.println(mensaje);
+        }
     }
 
     public Team DeactivateTeam(int teamId) {
@@ -70,16 +75,5 @@ public class TeamService {
         return ChosenTeam;
     }
 
-    
-    public boolean checkUniqueTeamID(int teamID){
-        boolean isRepeated = false;
-        List<Team> allTeams = GetAllTeams();
-        for(Team team : allTeams){
-            if(team.getTeamId()==teamID){
-                isRepeated = true;
-            }
-        }
-        return isRepeated;
-    }
 
 }

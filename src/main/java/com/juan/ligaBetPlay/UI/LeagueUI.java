@@ -1,10 +1,13 @@
 package com.juan.ligaBetPlay.UI;
 
 import com.juan.ligaBetPlay.models.League;
+import com.juan.ligaBetPlay.services.TeamService;
+import com.juan.ligaBetPlay.validation.TeamValidation;
 
 public class LeagueUI {
     Utils UIUTils = new Utils();
-
+    TeamValidation teamvalidation = new TeamValidation();
+    TeamService teamService = new TeamService();
     public void mainLeagueMenu(League league){
         UIUTils.CleanTerminal();
         System.out.println(""" 
@@ -54,10 +57,14 @@ public class LeagueUI {
         char chosenOption = UIUTils.CollectUserNumericKey();
         switch (chosenOption) {
             case '1':
-            
+            teamvalidation.CreateTeamValidation(league);
+            UIUTils.GuideUserToNextMethod();
+            mainLeagueMenu(league);
             break;
             case '2':
-
+            teamService.getAllActiveTeams(league);
+            UIUTils.GuideUserToNextMethod();
+            mainLeagueMenu(league);
             break;
             case '3':
 

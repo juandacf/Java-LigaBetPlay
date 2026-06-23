@@ -71,4 +71,10 @@ public class Utils {
 
     return userInput;
 }
+
+    public void GuideUserToNextMethod(){
+        System.out.println("Por favor, presione una tecla numérica para ir la próximo menú:");
+        int number = CollectUserNumericKey();
+        
+    }
 }
