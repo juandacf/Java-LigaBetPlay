@@ -9,9 +9,7 @@ public class TeamService {
 
     private League league;
     
-    public TeamService(League league) {
-        this.league = league;
-    }
+
 
     public League GetLeague() {
         return this.league;
@@ -21,8 +19,9 @@ public class TeamService {
         return this.league.GetLeagueTeams();
     }
 
-    public void CreateTeam(Team team) {
-        this.league.GetLeagueTeams().add(team);
+    public League CreateTeam(Team team, League league) {
+        league.GetLeagueTeams().add(team);
+        return league;
     }
 
     public void EditTeam(Team team, int teamId) {
@@ -69,6 +68,18 @@ public class TeamService {
             }
         }
         return ChosenTeam;
+    }
+
+    
+    public boolean checkUniqueTeamID(int teamID){
+        boolean isRepeated = false;
+        List<Team> allTeams = GetAllTeams();
+        for(Team team : allTeams){
+            if(team.getTeamId()==teamID){
+                isRepeated = true;
+            }
+        }
+        return isRepeated;
     }
 
 }

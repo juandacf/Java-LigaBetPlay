@@ -45,4 +45,30 @@ public class Utils {
         return userInput;
 
     }
+
+    public int CollectUserInt() {
+
+    Scanner scanner = new Scanner(System.in);
+    int userInput = 0;
+    boolean isValid = false;
+
+    while (!isValid) {
+
+        String input = scanner.nextLine();
+
+        if (input == null || input.isBlank()) {
+            System.out.println("El campo no puede estar vacío.");
+            continue;
+        }
+
+        try {
+            userInput = Integer.parseInt(input);
+            isValid = true;
+        } catch (NumberFormatException e) {
+            System.out.println("Por favor ingrese un número entero válido.");
+        }
+    }
+
+    return userInput;
+}
 }

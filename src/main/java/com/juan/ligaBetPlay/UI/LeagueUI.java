@@ -1,9 +1,11 @@
 package com.juan.ligaBetPlay.UI;
 
+import com.juan.ligaBetPlay.models.League;
+
 public class LeagueUI {
     Utils UIUTils = new Utils();
 
-    public void mainLeagueMenu(){
+    public void mainLeagueMenu(League league){
         UIUTils.CleanTerminal();
         System.out.println(""" 
             Bienvenido a la liga. Por favor, escoja una de las siguientes opciones:
@@ -19,13 +21,13 @@ public class LeagueUI {
             char chosenOption = UIUTils.CollectUserNumericKey();
             switch(chosenOption){
                 case '1':
-                mainTeamMenu();
+                mainTeamMenu(league);
                 break;
                 case '2':
-                mainPlayerMenu();
+                mainPlayerMenu(league);
                 break;
                 case '3':
-                mainStaffMenu();
+                mainStaffMenu(league);
                 break;
                 case '4':
                 System.out.println("Por desarrollarse");
@@ -36,7 +38,7 @@ public class LeagueUI {
             } 
     }
 
-    public void mainTeamMenu() {
+    public void mainTeamMenu(League league) {
         UIUTils.CleanTerminal();
         System.out.println("""
             Gestion de equipos
@@ -50,8 +52,27 @@ public class LeagueUI {
             """);
 
         char chosenOption = UIUTils.CollectUserNumericKey();
+        switch (chosenOption) {
+            case '1':
+            
+            break;
+            case '2':
+
+            break;
+            case '3':
+
+            break;
+
+            case '4':
+
+            break;
+
+            case '5':
+            mainLeagueMenu(league);
+            break;
+        }
     }
-    public void mainPlayerMenu() {
+    public void mainPlayerMenu(League league) {
         UIUTils.CleanTerminal();
         System.out.println("""
             Gestión de jugadores
@@ -65,7 +86,7 @@ public class LeagueUI {
             char chosenOption = UIUTils.CollectUserNumericKey();
     }
 
-    public void mainStaffMenu(){
+    public void mainStaffMenu(League league){
         UIUTils.CleanTerminal();
         System.out.println("""
             Gestión de Staff
