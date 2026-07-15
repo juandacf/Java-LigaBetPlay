@@ -18,7 +18,7 @@ public class TeamValidation {
         if(utilsValidation.checkUniqueTeamID(teamId, league)){
             utils.CleanTerminal();
             System.out.println("El Id ya está tomado. Por favor, escoja otro.");
-            CreateTeamValidation(league);
+             return CreateTeamValidation(league);
         }
         System.out.println("Por favor, ingrese el nombre del equipo.");
         String teamName = utils.CollectUserString();

@@ -1,6 +1,7 @@
 package com.juan.ligaBetPlay.UI;
 
 import com.juan.ligaBetPlay.models.League;
+import com.juan.ligaBetPlay.persistence.JsonManager;
 import com.juan.ligaBetPlay.services.TeamService;
 import com.juan.ligaBetPlay.validation.TeamValidation;
 
@@ -59,6 +60,7 @@ public class LeagueUI {
             case '1':
             teamvalidation.CreateTeamValidation(league);
             UIUTils.GuideUserToNextMethod();
+            JsonManager.saveLeague(league);
             mainLeagueMenu(league);
             break;
             case '2':
