@@ -66,6 +66,7 @@ public class LeagueUI {
             case '2':
             teamService.getAllActiveTeams(league);
             UIUTils.GuideUserToNextMethod();
+            JsonManager.saveLeague(league);
             mainLeagueMenu(league);
             break;
             case '3':
@@ -73,7 +74,10 @@ public class LeagueUI {
             break;
 
             case '4':
-
+            teamvalidation.DeleteTeamValidation(league);
+            UIUTils.GuideUserToNextMethod();
+            JsonManager.saveLeague(league);
+            mainLeagueMenu(league);
             break;
 
             case '5':

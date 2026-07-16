@@ -27,4 +27,18 @@ public class TeamValidation {
         System.out.println("El equipo ha sido cread exitosamente");
         return league;
     }
+
+    public League DeleteTeamValidation (League league){
+        teamService.getAllActiveTeams(league);
+        System.out.println("Por favor, escoja el ID del equipo que quiere eliminar");
+        int  teamId = utils.CollectUserInt();
+        if(!utilsValidation.checkUniqueTeamID((teamId), league)){
+            System.out.println("El Equipo no existe. Por favor, presione una tecla numércia y vuelva a intentarlo.");
+            return DeleteTeamValidation(league);
+        }
+        teamService.DeleteTeam(teamId, league);
+        System.out.println("La liga ha sido borrada con éxito.");
+        return league;
+    }
+
 }

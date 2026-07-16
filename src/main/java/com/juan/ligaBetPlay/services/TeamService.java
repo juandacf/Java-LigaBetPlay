@@ -75,5 +75,19 @@ public class TeamService {
         return ChosenTeam;
     }
 
+    public boolean DeleteTeam(int teamId, League league) {
 
+
+        for (Team team : league.GetLeagueTeams()) {
+            if (team.getTeamId() == teamId) {
+                league.GetLeagueTeams().remove(team);
+                return true;
+            }
+        }
+        return false;   
+    }
+
+
+
+    
 }
