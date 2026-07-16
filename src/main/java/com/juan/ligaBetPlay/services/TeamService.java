@@ -88,6 +88,15 @@ public class TeamService {
     }
 
 
+    public boolean EditTeamName(int teamId, League league, String name){
+        for(Team team : league.GetLeagueTeams()){
+            if(team.getTeamId() == teamId){
+                team.setTeamName(name);
+                return true;
+            }
+        }
+        return false;
+    }
 
     
 }

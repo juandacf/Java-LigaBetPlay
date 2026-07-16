@@ -41,4 +41,19 @@ public class TeamValidation {
         return league;
     }
 
+    public League SetTeamNameValidation(League league){
+        teamService.getAllActiveTeams(league);
+        System.out.println("Por favor, escoja el ID del equipo cuyo nombre quiere actualizar");
+        int  teamId = utils.CollectUserInt();
+                if(!utilsValidation.checkUniqueTeamID((teamId), league)){
+            System.out.println("El Equipo no existe. Por favor, presione una tecla numércia y vuelva a intentarlo.");
+            return SetTeamNameValidation(league);
+        }
+        System.out.println("Por favor, escoja el nuevo nombre del equipo:");
+        String newTeamName = utils.CollectUserString();
+        teamService.EditTeamName(teamId, league, newTeamName);
+        System.out.println("El nombre del equipo ha sido actualizado con éxito");
+        return league;
+    }
+
 }
