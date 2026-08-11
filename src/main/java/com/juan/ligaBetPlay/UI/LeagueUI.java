@@ -70,7 +70,11 @@ public class LeagueUI {
             mainLeagueMenu(league);
             break;
             case '3':
-
+            teamService.getAllActiveTeams(league);
+            teamvalidation.SetTeamNameValidation(league);
+            UIUTils.GuideUserToNextMethod();
+            JsonManager.saveLeague(league);
+            mainLeagueMenu(league);
             break;
 
             case '4':

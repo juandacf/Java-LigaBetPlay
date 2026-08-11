@@ -38,11 +38,15 @@ public class TeamService {
                 ActiveTeams.add(team);
             }
         }
-        
+        if(ActiveTeams.size()== 0){
+            System.out.println("No hay equipos para mostrar.");
+        }
         for(Team team: ActiveTeams){
             String mensaje = String.format("%d. %s", team.getTeamId(), team.getTeamName() );
             System.out.println(mensaje);
         }
+
+        
     }
 
     public Team DeactivateTeam(int teamId) {

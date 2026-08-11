@@ -42,7 +42,6 @@ public class TeamValidation {
     }
 
     public League SetTeamNameValidation(League league){
-        teamService.getAllActiveTeams(league);
         System.out.println("Por favor, escoja el ID del equipo cuyo nombre quiere actualizar");
         int  teamId = utils.CollectUserInt();
                 if(!utilsValidation.checkUniqueTeamID((teamId), league)){
