@@ -1,15 +1,24 @@
 package com.juan.ligaBetPlay.validation;
 
+import java.util.Scanner;
+
 import com.juan.ligaBetPlay.UI.Utils;
 import com.juan.ligaBetPlay.models.League;
 import com.juan.ligaBetPlay.models.Team;
 import com.juan.ligaBetPlay.services.TeamService;
 
 public class TeamValidation {
-
-    Utils utils = new Utils();
-    UtilsValidation utilsValidation = new UtilsValidation();
-    TeamService teamService = new TeamService();
+    
+    private final Utils utils;
+    private final UtilsValidation utilsValidation;
+    private final TeamService teamService;
+    public TeamValidation(Utils utils, UtilsValidation utilsValidation, TeamService teamService){
+        this.utils = utils;
+        this.utilsValidation = utilsValidation;
+        this.teamService = teamService;
+    }
+     
+    
 
     public League CreateTeamValidation(League league){
 

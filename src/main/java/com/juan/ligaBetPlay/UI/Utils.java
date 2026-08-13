@@ -3,6 +3,11 @@ package com.juan.ligaBetPlay.UI;
 import java.util.Scanner;
 
 public class Utils {
+    private Scanner scanner;
+
+    public Utils(Scanner scanner){
+        this.scanner = scanner;
+    }
 
     public void CleanTerminal(){
     System.out.print("\033[H\033[2J");
@@ -10,7 +15,6 @@ public class Utils {
     }
 
     public char CollectUserNumericKey(){
-        Scanner scanner = new Scanner(System.in);
         char option = ' ';
         boolean isValid = false;
 
@@ -30,7 +34,6 @@ public class Utils {
 
     public String CollectUserString(){
 
-        Scanner scanner = new Scanner(System.in);
         String userInput = null;
         boolean IsValid = false;
 
@@ -48,7 +51,6 @@ public class Utils {
 
     public int CollectUserInt() {
 
-    Scanner scanner = new Scanner(System.in);
     int userInput = 0;
     boolean isValid = false;
 

@@ -7,8 +7,12 @@ import com.juan.ligaBetPlay.models.Team;
 import com.juan.ligaBetPlay.services.TeamService;
 
 public class UtilsValidation {
-    TeamService teamService = new TeamService();
-
+        private final TeamService teamService;
+        
+        public UtilsValidation (TeamService teamService){
+            this.teamService = teamService;
+        }
+        
         public boolean checkUniqueTeamID(int teamID, League league){
         boolean isRepeated = false;
         List<Team> allTeams = teamService.GetAllTeams(league);

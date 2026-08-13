@@ -1,16 +1,27 @@
 package com.juan.ligaBetPlay.UI;
 
+import java.util.Scanner;
+
 import com.juan.ligaBetPlay.models.League;
 import com.juan.ligaBetPlay.persistence.JsonManager;
 import com.juan.ligaBetPlay.services.TeamService;
 import com.juan.ligaBetPlay.validation.TeamValidation;
 
 public class LeagueUI {
-    Utils UIUTils = new Utils();
-    TeamValidation teamvalidation = new TeamValidation();
-    TeamService teamService = new TeamService();
+    
+    private final Utils UIUtils;
+    private final TeamValidation teamvalidation;
+    private final TeamService teamService;
+
+    public LeagueUI(Utils UIUtils, TeamValidation teamValidation, TeamService teamService){
+        this.UIUtils = UIUtils;
+        this.teamvalidation = teamValidation;
+        this.teamService = teamService;
+    }
+
+
     public void mainLeagueMenu(League league){
-        UIUTils.CleanTerminal();
+        UIUtils.CleanTerminal();
         System.out.println(""" 
             Bienvenido a la liga. Por favor, escoja una de las siguientes opciones:
             -----------------------------------------------------------------------
@@ -22,7 +33,7 @@ public class LeagueUI {
             -----------------------------------------------------------------------
             """); 
 
-            char chosenOption = UIUTils.CollectUserNumericKey();
+            char chosenOption = UIUtils.CollectUserNumericKey();
             switch(chosenOption){
                 case '1':
                 mainTeamMenu(league);
@@ -43,7 +54,7 @@ public class LeagueUI {
     }
 
     public void mainTeamMenu(League league) {
-        UIUTils.CleanTerminal();
+        UIUtils.CleanTerminal();
         System.out.println("""
             Gestion de equipos
             ------------------
@@ -55,31 +66,31 @@ public class LeagueUI {
             --------------------------
             """);
 
-        char chosenOption = UIUTils.CollectUserNumericKey();
+        char chosenOption = UIUtils.CollectUserNumericKey();
         switch (chosenOption) {
             case '1':
             teamvalidation.CreateTeamValidation(league);
-            UIUTils.GuideUserToNextMethod();
+            UIUtils.GuideUserToNextMethod();
             JsonManager.saveLeague(league);
             mainLeagueMenu(league);
             break;
             case '2':
             teamService.getAllActiveTeams(league);
-            UIUTils.GuideUserToNextMethod();
+            UIUtils.GuideUserToNextMethod();
             JsonManager.saveLeague(league);
             mainLeagueMenu(league);
             break;
             case '3':
             teamService.getAllActiveTeams(league);
             teamvalidation.SetTeamNameValidation(league);
-            UIUTils.GuideUserToNextMethod();
+            UIUtils.GuideUserToNextMethod();
             JsonManager.saveLeague(league);
             mainLeagueMenu(league);
             break;
 
             case '4':
             teamvalidation.DeleteTeamValidation(league);
-            UIUTils.GuideUserToNextMethod();
+            UIUtils.GuideUserToNextMethod();
             JsonManager.saveLeague(league);
             mainLeagueMenu(league);
             break;
@@ -90,7 +101,7 @@ public class LeagueUI {
         }
     }
     public void mainPlayerMenu(League league) {
-        UIUTils.CleanTerminal();
+        UIUtils.CleanTerminal();
         System.out.println("""
             Gestión de jugadores
             --------------------
@@ -100,11 +111,11 @@ public class LeagueUI {
             4. Eliminar a un jugador de un equipo
             """);
 
-            char chosenOption = UIUTils.CollectUserNumericKey();
+            char chosenOption = UIUtils.CollectUserNumericKey();
     }
 
     public void mainStaffMenu(League league){
-        UIUTils.CleanTerminal();
+        UIUtils.CleanTerminal();
         System.out.println("""
             Gestión de Staff
             ----------------
@@ -115,6 +126,6 @@ public class LeagueUI {
 
         """);
 
-        char chosenOption = UIUTils.CollectUserNumericKey();
+        char chosenOption = UIUtils.CollectUserNumericKey();
     }
 }
