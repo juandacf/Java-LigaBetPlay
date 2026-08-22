@@ -5,6 +5,7 @@ import java.util.Scanner;
 import com.juan.ligaBetPlay.models.League;
 import com.juan.ligaBetPlay.persistence.JsonManager;
 import com.juan.ligaBetPlay.services.TeamService;
+import com.juan.ligaBetPlay.validation.PlayerValidation;
 import com.juan.ligaBetPlay.validation.TeamValidation;
 
 public class LeagueUI {
@@ -12,11 +13,13 @@ public class LeagueUI {
     private final Utils UIUtils;
     private final TeamValidation teamvalidation;
     private final TeamService teamService;
+    private final PlayerValidation playerValidation;
 
-    public LeagueUI(Utils UIUtils, TeamValidation teamValidation, TeamService teamService){
+    public LeagueUI(Utils UIUtils, TeamValidation teamValidation, TeamService teamService, PlayerValidation playerValidation){
         this.UIUtils = UIUtils;
         this.teamvalidation = teamValidation;
         this.teamService = teamService;
+        this.playerValidation = playerValidation;
     }
 
 
@@ -111,7 +114,17 @@ public class LeagueUI {
             4. Eliminar a un jugador de un equipo
             """);
 
-            char chosenOption = UIUtils.CollectUserNumericKey();
+        char chosenOption = UIUtils.CollectUserNumericKey();
+        switch(chosenOption){
+        case '1':
+        playerValidation.CreatePlayerValidation(league);
+        UIUtils.GuideUserToNextMethod();
+        JsonManager.saveLeague(league);
+        mainLeagueMenu(league);
+        break;
+        case '2':
+
+    }
     }
 
     public void mainStaffMenu(League league){
@@ -127,5 +140,5 @@ public class LeagueUI {
         """);
 
         char chosenOption = UIUtils.CollectUserNumericKey();
-    }
+}
 }

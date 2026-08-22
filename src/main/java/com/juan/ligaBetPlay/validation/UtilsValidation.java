@@ -3,7 +3,9 @@ package com.juan.ligaBetPlay.validation;
 import java.util.List;
 
 import com.juan.ligaBetPlay.models.League;
+import com.juan.ligaBetPlay.models.Player;
 import com.juan.ligaBetPlay.models.Team;
+import com.juan.ligaBetPlay.services.PlayerService;
 import com.juan.ligaBetPlay.services.TeamService;
 
 public class UtilsValidation {
@@ -21,6 +23,19 @@ public class UtilsValidation {
                 isRepeated = true;
             }
         }
+        return isRepeated;
+    }
+
+    public boolean checkUniqueDorsalNumber(int teamID, League league, int PlayerId){
+
+        boolean isRepeated = false;
+        Team chosenTeam = teamService.GetTeamByID(teamID);
+        for(Player player: chosenTeam.getAllPlayers()){
+            if(PlayerId== player.getPlayerShirtNumber()){
+                return true;
+            }
+        }
+
         return isRepeated;
     }
 
