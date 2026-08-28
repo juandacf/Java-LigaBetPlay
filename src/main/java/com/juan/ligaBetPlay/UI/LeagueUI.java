@@ -123,7 +123,22 @@ public class LeagueUI {
         mainLeagueMenu(league);
         break;
         case '2':
-
+        teamService.getAllActiveTeams(league);
+        System.out.println("Por favor, ingrese el ID del equipo escogido.");
+        int  teamId = UIUtils.CollectUserInt();
+        playerValidation.PrintAllTeamPlayers(league, teamId);
+        UIUtils.GuideUserToNextMethod();
+        mainLeagueMenu(league);
+        case '3':
+        playerValidation.EditPlayerValidation(league);
+        UIUtils.GuideUserToNextMethod();
+        JsonManager.saveLeague(league);
+        mainLeagueMenu(league);
+        case '4':
+        playerValidation.DeletePlayerValidation(league);
+        UIUtils.GuideUserToNextMethod();
+        JsonManager.saveLeague(league);
+        mainLeagueMenu(league);
     }
     }
 
@@ -132,7 +147,7 @@ public class LeagueUI {
         System.out.println("""
             Gestión de Staff
             ----------------
-            1. Añadir un nuevo miembro de staff a un equipo
+            1. Añadir un nuevo miembro1 de staff a un equipo
             2. Ver el staff de un equipo
             3. Editar un miembro de staff de un equipo
             4. Eliminar un miembro de staff de un equipo
