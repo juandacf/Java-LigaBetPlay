@@ -29,7 +29,7 @@ public class UtilsValidation {
     public boolean checkUniqueDorsalNumber(int teamID, League league, int PlayerId){
 
         boolean isRepeated = false;
-        Team chosenTeam = teamService.GetTeamByID(teamID);
+        Team chosenTeam = teamService.GetTeamByID(teamID, league);
         for(Player player: chosenTeam.getAllPlayers()){
             if(PlayerId== player.getPlayerShirtNumber()){
                 return true;

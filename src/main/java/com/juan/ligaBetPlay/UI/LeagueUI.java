@@ -129,16 +129,19 @@ public class LeagueUI {
         playerValidation.PrintAllTeamPlayers(league, teamId);
         UIUtils.GuideUserToNextMethod();
         mainLeagueMenu(league);
+        break;
         case '3':
         playerValidation.EditPlayerValidation(league);
         UIUtils.GuideUserToNextMethod();
         JsonManager.saveLeague(league);
         mainLeagueMenu(league);
+        break;
         case '4':
         playerValidation.DeletePlayerValidation(league);
         UIUtils.GuideUserToNextMethod();
         JsonManager.saveLeague(league);
         mainLeagueMenu(league);
+        break;
     }
     }
 

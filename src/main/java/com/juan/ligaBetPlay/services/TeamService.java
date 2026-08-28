@@ -25,8 +25,8 @@ public class TeamService {
         return league;
     }
 
-    public void EditTeam(Team team, int teamId) {
-        this.league.GetLeagueTeams().set(teamId, team);
+    public void EditTeam(Team team, int teamId, League league) {
+        league.GetLeagueTeams().set(teamId, team);
     }
 
     public void getAllActiveTeams(League league) { // This is missing
@@ -49,9 +49,9 @@ public class TeamService {
         
     }
 
-    public Team DeactivateTeam(int teamId) {
+    public Team DeactivateTeam(int teamId, League league) {
         Team DeactivatedTeam = null;
-        for (Team team : this.league.GetLeagueTeams()) {
+        for (Team team : league.GetLeagueTeams()) {
             if (teamId == team.getTeamId()) {
                 team.setTeamStatus(false);
             }
@@ -59,9 +59,9 @@ public class TeamService {
         return DeactivatedTeam;
     }
 
-    public Team ActivateTeam(int teamId){
+    public Team ActivateTeam(int teamId, League league){
         Team ActivatedTeam = null;
-        for (Team team : this.league.GetLeagueTeams()) {
+        for (Team team : league.GetLeagueTeams()) {
             if (teamId == team.getTeamId()) {
                 team.setTeamStatus(true);
             }
@@ -69,9 +69,9 @@ public class TeamService {
         return ActivatedTeam;
     }
 
-    public Team GetTeamByID(int teamId) {
+    public Team GetTeamByID(int teamId, League league) {
         Team ChosenTeam = null;
-        for (Team team : this.league.GetLeagueTeams()) {
+        for (Team team : league.GetLeagueTeams()) {
             if (team.getTeamId() == teamId) {
                 ChosenTeam = team;
             }
