@@ -67,12 +67,13 @@ public class PlayerValidation {
             return EditPlayerValidation(league);
         }
         PrintAllTeamPlayers(league, teamId);
+        System.out.println("Por favor, inserte el id del jugador:");
         int PlayerId = utils.CollectUserInt();
         if (!utilsValidation.checkUniqueDorsalNumber(teamId, league, PlayerId)) {
             System.out.println("El jugador no existe.Por favor, vuelva a intentarlo.");
             return EditPlayerValidation(league);
         }
-        System.out.println("Por favor, ingrese el nuevo dorsal del jugador.");
+        System.out.println("Por favor, ingrese el nuevo nombre del jugador.");
         String PlayerNewName = utils.CollectUserString();
 
         Player editedPlayer = new Player(PlayerId, PlayerNewName);
